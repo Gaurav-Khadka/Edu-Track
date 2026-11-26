@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 1. Navigation bar -->
+  <header class="navbar">
+    <a href="#" class="brand">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      Studyhub
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="#overview" class="active">Overview</a>
+      <a href="#subjects">Subjects</a>
+      <a href="#progress">Progress</a>
+      <a href="#assignments">Assignments</a>
+    </nav>
+    <div class="nav-user">
+      <span class="avatar" aria-hidden="true">AS</span>
+      <span class="user-name">Aarav Sharma</span>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="container">
+
+    <section id="overview" class="welcome">
+      <div>
+        <h1 id="greeting">Welcome back, Aarav</h1>
+        <p id="summaryLine">Loading your summary…</p>
+      </div>
+    </section>
+
+    <!-- 2. Subject cards -->
+    <section id="subjects">
+      <h2 class="section-title">Your subjects</h2>
+      <div class="subject-grid" id="subjectGrid"></div>
+    </section>
+
+    <div class="two-col">
+
+      <!-- 3. Progress tracker -->
+      <section id="progress" class="panel">
+        <h2 class="section-title">Progress tracker</h2>
+        <div class="overall">
+          <div class="ring" id="overallRing">
+            <span id="overallPercent">0%</span>
+          </div>
+          <div>
+            <p class="overall-label">Overall course completion</p>
+            <p class="muted" id="overallDetail"></p>
+          </div>
+        </div>
+        <ul class="bars" id="progressBars"></ul>
+      </section>
+
+      <!-- 4. Assignment section -->
+      <section id="assignments" class="panel">
+        <div class="panel-head">
+          <h2 class="section-title">Assignments</h2>
+          <div class="filters" role="group" aria-label="Filter assignments">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="pending">Pending</button>
+            <button class="chip" data-filter="done">Done</button>
+          </div>
+        </div>
+
+        <form class="add-form" id="addForm">
+          <input type="text" id="newTitle" placeholder="Add an assignment" required aria-label="Assignment title">
+          <select id="newSubject" aria-label="Subject"></select>
+          <input type="date" id="newDue" required aria-label="Due date">
+          <button type="submit" class="btn">Add assignment</button>
+        </form>
+
+        <ul class="assignment-list" id="assignmentList"></ul>
+        <p class="empty" id="emptyMsg" hidden>No assignments here. Add one above to get started.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
