@@ -171,3 +171,33 @@ navAnchors.forEach((a) => a.addEventListener("click", () => $("navLinks").classL
 renderSubjects();
 renderProgress();
 renderAssignments();
+async function loadResources() {
+    const output = document.getElementById("resources");
+
+    output.innerHTML = "Loading resources...";
+
+    try {
+        const response = await fetch(
+            "https://jsonplaceholder.typicode.com/posts?_limit=5"
+        );
+
+        const data = await response.json();
+
+        output.innerHTML = data.map(post => `
+            <div>
+                <h3>${post.title}</h3>
+                <p>${post.body}</p>
+                <hr>
+            </div>
+        `).join("");
+
+    } catch (error) {
+        output.innerHTML = data.map(post => `
+    <div class="resource-card">
+        <h3>${post.title}</h3>
+        <p>${post.body}</p>
+    </div>
+`).join("");
+        console.error(error);
+    }
+}
